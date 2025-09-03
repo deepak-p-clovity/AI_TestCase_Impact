@@ -8,12 +8,7 @@ import api, { route } from '@forge/api';
 
 const resolver = new Resolver();
 
-resolver.define('getSiteUrl', async () => {
-  const res = await api.asApp().requestJira(route`/rest/api/3/serverInfo`);
-  const data = await res.json();
-  const base = data?.baseUrl;
-  return base;
-});
+
 
 const EPIC_FIELDS =
   'project,summary,description,priority,labels,issuelinks'; // lean, but enough for current flow
@@ -26,7 +21,13 @@ const CHILD_FIELDS =
 function getContextEpicKey(payload, context) {
   return payload?.epicKey || context?.extension?.issue?.key || context?.issue?.key || null;
 }
-
+// --------------site URL-----------------------
+resolver.define('getSiteUrl', async () => {
+  const res = await api.asApp().requestJira(route`/rest/api/3/serverInfo`);
+  const data = await res.json();
+  const base = data?.baseUrl;
+  return base;
+});
 /* --------------------------- Jira fetchers --------------------------- */
 
 resolver.define('getEpicRaw', async ({ payload, context }) => {
