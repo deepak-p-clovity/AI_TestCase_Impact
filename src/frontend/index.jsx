@@ -102,52 +102,7 @@ const FormInModal = ({ closeModal, pack }) => {
       <ModalHeader>
         <ModalTitle>{pack.parentKey} - {suggestion.title}</ModalTitle>
       </ModalHeader>
-      {/* 
-      <ModalBody>
-        <Label labelFor={getFieldId('title')}>Title</Label>
-        <Textfield
-          {...register('title')}
-          isDisabled={!isEditing}
-          defaultValue={suggestion.title}
-        />
-
-        <Label labelFor={getFieldId('environment')}>Environment</Label>
-        <Textfield
-          {...register('environment')}
-          isDisabled={!isEditing}
-          defaultValue={suggestion.environment}
-        />
-
-        <Label>Description</Label>
-        <TextArea
-          defaultValue={suggestion.description}
-          isDisabled={!isEditing}
-        />
-
-        <Label>Preconditions</Label>
-        <TextArea
-          defaultValue={suggestion.preconditions}
-          isDisabled={!isEditing}
-        />
-
-        <Label>Steps</Label>
-        <TextArea
-          defaultValue={suggestion.testSteps}
-          isDisabled={!isEditing}
-        />
-
-        <Label>Expected Result</Label>
-        <TextArea
-          defaultValue={suggestion.expectedResult}
-          isDisabled={!isEditing}
-        />
-
-        <Label>Actual Result</Label>
-        <TextArea
-          placeholder="(blank during planning; tester fills later)"
-          isDisabled={!isEditing}
-        />
-      </ModalBody> */}
+    
       <ModalBody>
         <Label labelFor={getFieldId('title')}>Title</Label>
         <Textfield
@@ -709,11 +664,7 @@ const App = () => {
                     <Text>
                       Total created: {allCreated.length}
                     </Text>
-                    {/* {allCreated.map((c, i) => (
-                      <Text key={`${c.parentKey}-${c.key}-${i}`}>
-                        {c.key} <Text xcss={muted}>(from {c.parentKey})</Text>
-                      </Text>
-                    ))} */}
+                   
                     {allCreated.map((c, i) => (
                       <Text key={`${c.parentKey}-${c.key}-${i}`}>
                         <Link
